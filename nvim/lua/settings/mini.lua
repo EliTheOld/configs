@@ -3,6 +3,7 @@ require("mini.tabline").setup({
 	set_vim_settings = true,
 	tabpage_section = "left",
 })
+-- require('mini.hues').setup({ background = '#282828', foreground = '#ebdbb2', n_hues = 1, saturation = "high", accent = "orange" })
 require("mini.jump").setup()
 require("mini.jump2d").setup()
 require("mini.comment").setup()

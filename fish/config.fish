@@ -1,5 +1,5 @@
 if status is-interactive
-    neofetch
+    macchina -t Beryllium
 end
 
 function fish_greeting
