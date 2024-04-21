@@ -1,0 +1,195 @@
+font pango:Iosevka Nerd Font 12
+set $mod Mod4
+workspace_layout default
+new_window pixel 0
+gaps inner 6
+gaps outer 4
+floating_modifier $mod
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+1    workspace  $ws1
+bindsym $mod+2    workspace  $ws2
+bindsym $mod+3    workspace  $ws3
+bindsym $mod+4    workspace  $ws4
+bindsym $mod+5    workspace  $ws5
+bindsym $mod+6    workspace  $ws6
+bindsym $mod+7    workspace  $ws7
+bindsym $mod+8    workspace  $ws8
+bindsym $mod+9    workspace  $ws9
+bindsym $mod+0    workspace  $ws10
+bindcode $mod+87 workspace 1
+bindcode $mod+88 workspace 2
+bindcode $mod+89 workspace 3
+bindcode $mod+83 workspace 4
+bindcode $mod+84 workspace 5
+bindcode $mod+85 workspace 6
+bindcode $mod+79 workspace 7
+bindcode $mod+80 workspace 8
+bindcode $mod+81 workspace 9
+bindcode $mod+90 workspace 10
+bindcode $mod+Mod2+87 workspace $ws1
+bindcode $mod+Mod2+88 workspace $ws2
+bindcode $mod+Mod2+89 workspace $ws3
+bindcode $mod+Mod2+83 workspace $ws4
+bindcode $mod+Mod2+84 workspace $ws5
+bindcode $mod+Mod2+85 workspace $ws6
+bindcode $mod+Mod2+79 workspace $ws7
+bindcode $mod+Mod2+80 workspace $ws8
+bindcode $mod+Mod2+81 workspace $ws9
+bindcode $mod+Mod2+90 workspace $ws10
+bindsym $mod+Shift+1    move container to workspace  $ws1
+bindsym $mod+Shift+2    move container to workspace  $ws2
+bindsym $mod+Shift+3    move container to workspace  $ws3
+bindsym $mod+Shift+4    move container to workspace  $ws4
+bindsym $mod+Shift+5    move container to workspace  $ws5
+bindsym $mod+Shift+6    move container to workspace  $ws6
+bindsym $mod+Shift+7    move container to workspace  $ws7
+bindsym $mod+Shift+8    move container to workspace  $ws8
+bindsym $mod+Shift+9    move container to workspace  $ws9
+bindsym $mod+Shift+0    move container to workspace  $ws10
+bindcode $mod+Shift+Mod2+87 	move container to workspace  $ws1
+bindcode $mod+Shift+Mod2+88 	move container to workspace  $ws2
+bindcode $mod+Shift+Mod2+89 	move container to workspace  $ws3
+bindcode $mod+Shift+Mod2+83 	move container to workspace  $ws4
+bindcode $mod+Shift+Mod2+84 	move container to workspace  $ws5
+bindcode $mod+Shift+Mod2+85 	move container to workspace  $ws6
+bindcode $mod+Shift+Mod2+79 	move container to workspace  $ws7
+bindcode $mod+Shift+Mod2+80 	move container to workspace  $ws8
+bindcode $mod+Shift+Mod2+81 	move container to workspace  $ws9
+bindcode $mod+Shift+Mod2+90 	move container to workspace  $ws10
+bindcode $mod+Shift+87 	 move container to workspace  $ws1
+bindcode $mod+Shift+88 	 move container to workspace  $ws2
+bindcode $mod+Shift+89 	 move container to workspace  $ws3
+bindcode $mod+Shift+83 	 move container to workspace  $ws4
+bindcode $mod+Shift+84 	 move container to workspace  $ws5
+bindcode $mod+Shift+85 	 move container to workspace  $ws6
+bindcode $mod+Shift+79 	 move container to workspace  $ws7
+bindcode $mod+Shift+80 	 move container to workspace  $ws8
+bindcode $mod+Shift+81 	 move container to workspace  $ws9
+bindcode $mod+Shift+90 	 move container to workspace  $ws10
+bindsym $mod+Return exec alacritty
+bindsym $mod+t exec alacritty
+bindsym $mod+r exec dmenu_run -nb '#282828' -nf '#ebdbb2' -sb '#d65d0e' -sf '#282828' -fn 'UbuntuMono-11'
+bindsym $mod+q kill
+# bindsym $mod+Shift+r resize
+bindsym $mod+Shift+r restart
+bindsym XF86MonBrightnessUp exec brightnessctl s +5% && notify-send "$(brightnessctl | grep Current)"
+bindsym XF86MonBrightnessDown exec brightnessctl s 5%- && notify-send "$(brightnessctl | grep Current)"
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+g layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+a focus parent
+bindsym XF86AudioRaiseVolume exec pamixer -i 5
+bindsym XF86AudioLowerVolume exec pamixer -d 5
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+# bindsym $mod+p exec /usr/local/bin/switch-audio-port
+bindsym $mod+w exec /usr/bin/firefox
+bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3:  "
+set $ws4 "4: "
+set $ws5 "5: "
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+assign [class="alacritty"] $ws1
+assign [class="(?i)firefox"] $ws2
+assign [class="pcmanfm"] $ws3
+
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id numlockx on
+exec --no-startup-id xset s 480 dpms 600 600 600
+exec --no-startup-id dbus-launch dunst
+exec_always --no-startup-id dunst
+exec_always --no-startup-id autotiling
+exec_always --no-startup-id blueman-applet
+exec_always --no-startup-id nm-applet
+
+exec_always --no-startup-id feh --bg-scale  ~/Pictures/solar-system.jpg
+exec_always "setxkbmap -model pc104 -layout us,ru -variant colemak, -option grp:win_space_toggle"
+
+for_window [class="Yad" instance="yad"] floating enable
+for_window [class="Galculator" instance="galculator"] floating enable
+for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
+for_window [class="Xsane" instance="xsane"] floating enable
+for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
+for_window [class="qt5ct" instance="qt5ct"] floating enable
+for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
+for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
+for_window [class="Pamac-manager"] floating enable
+for_window [class="Blueman"] floating enable
+for_window [window_role="About"] floating enable
+set $blue   		#458588
+set $red		    #cc241d
+set $white		    #ebdbb2
+set $black		    #1d2021
+set $purple		    #b16286
+set $darkgrey		#282828
+set $grey		    #b0b5bd
+set $mediumgrey		#504945
+set $yellow     	#d79921
+set $green          #98971a
+set $orange         #d65d0e
+set $cream          #bdae93
+
+default_border pixel 3
+
+# define colors for windows:
+#class		        	    border		bground		text		indicator	child_border
+client.focused		    	$orange 	$darkgrey	$white		$orange	$orange
+client.unfocused	    	$darkgrey	$darkgrey  	$white		$darkgrey  	$darkgrey
+client.focused_inactive		$mediumgrey	$mediumgrey	$white		$black		$darkgrey
+client.urgent		    	$red	    $red	    $white		$yellow 	$yellow
+bar {
+    # status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks
+    # status_command i3status -c ~/.config/i3status/i3status.conf
+
+    status_command /usr/bin/bumblebee-status \
+        -m arch_update layout-xkbswitch brightness pamixer memory battery-upower time date docker_ps system \
+        -p  time.format=" %H:%M" date.format=" %a, %d %b %Y" memory.format="{used}" \
+        -t gruvbox-powerline
+
+
+		font pango:Iosevka Nerd Font 12
+	    	position top
+		    tray_padding 0
+strip_workspace_numbers yes
+		    colors {
+		    separator          $darkgrey
+		    background         $darkgrey
+		    statusline         $white
+#                          	border 		bg		    txt		    indicator
+		focused_workspace	$yellow	   	$yellow		$darkgrey	$purple
+		active_workspace	$blue      	$mediumgrey	$darkgrey	$purple
+		inactive_workspace	$darkgrey   $darkgrey	$grey		$purple
+		urgent_workspace	$red	    $red	    $white		$purple
+	}
+}
+
