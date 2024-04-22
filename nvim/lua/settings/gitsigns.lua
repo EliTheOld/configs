@@ -1,21 +1,11 @@
 require("gitsigns").setup({
 	signs = {
-		--  add          = { text = '┃' },
-		--  change       = { text = '┃' },
-		--  delete       = { text = '_' },
-		--  topdelete    = { text = '‾' },
-		--  changedelete = { text = '~' },
-		add = { hl = "GitSignsAdd", text = " ", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-		change = { hl = "GitSignsChange", text = " ", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-		delete = { hl = "GitSignsDelete", text = " ", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-		topdelete = { hl = "GitSignsDelete", text = "󱅁 ", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-		changedelete = {
-			hl = "GitSignsChange",
-			text = "󰍷 ",
-			numhl = "GitSignsChangeNr",
-			linehl = "GitSignsChangeLn",
-		},
-		untracked = { text = "" },
+		add = { text = "┃" },
+		change = { text = "┃" },
+		delete = { text = "_" },
+		topdelete = { text = "‾" },
+		changedelete = { text = "~" },
+		untracked = { text = "┆" },
 	},
 	signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
 	numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
@@ -44,7 +34,7 @@ require("gitsigns").setup({
 	max_file_length = 40000, -- Disable if file is longer than this (in lines)
 	preview_config = {
 		-- Options passed to nvim_open_win
-		border = "single",
+		border = "double",
 		style = "minimal",
 		relative = "cursor",
 		row = 0,
