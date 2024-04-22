@@ -12,7 +12,7 @@ alias la='eza -a --color=always --group-directories-first --icons'  # all files 
 alias ll='eza -l --color=always --group-directories-first --icons'  # long format
 alias lt='eza -aT --color=always --group-directories-first --icons' # tree listing
 alias l.="eza -a | egrep '^\.'"                                     # show only dotfiles
-alias cat='bat --theme base16-256 --style full'
+alias cat='batcat --theme base16-256 --style full'
 alias wtr='curl wttr.in'
 starship init fish | source
 
