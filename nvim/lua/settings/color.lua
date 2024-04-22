@@ -16,5 +16,4 @@ require("rose-pine").setup({
         transparency = false,
     },
 })
-
 vim.cmd("colorscheme gruvbox")

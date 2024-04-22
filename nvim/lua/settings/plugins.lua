@@ -18,7 +18,6 @@ require("lazy").setup({
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	"stevearc/conform.nvim",
 	"nvim-lua/plenary.nvim",
-	"lewis6991/impatient.nvim",
 
 	{
 		"m-demare/hlargs.nvim",

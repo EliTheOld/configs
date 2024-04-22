@@ -6,6 +6,7 @@ if vim.g.neovide then
 		transparent = false,
 	})
 end
+vim.loader.enable()
 vim.opt.guicursor = ""
 vim.opt.nu = true
 vim.opt.relativenumber = true
