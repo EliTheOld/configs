@@ -15,4 +15,7 @@ alias l.="eza -a | egrep '^\.'"                                     # show only 
 alias cat='batcat --theme base16-256 --style full'
 alias wtr='curl wttr.in'
 starship init fish | source
+function fish_user_key_bindings
+    fzf --fish | source
+end
 
