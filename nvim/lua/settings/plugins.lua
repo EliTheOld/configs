@@ -17,19 +17,8 @@ require("lazy").setup({
 	-- NOTE: LSP plugins
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	"stevearc/conform.nvim",
-	"mfussenegger/nvim-dap",
 	"nvim-lua/plenary.nvim",
 	"lewis6991/impatient.nvim",
-
-	{
-		"mfussenegger/nvim-dap-python",
-		dependencies = { "mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui" },
-	},
-
-	{
-		"rcarriga/nvim-dap-ui",
-		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-	},
 
 	{
 		"m-demare/hlargs.nvim",

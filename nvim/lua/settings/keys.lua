@@ -74,8 +74,6 @@ k("n", "<leader>t", ":Telescope<CR>", {desc="Telescope"})
 k("n", "<leader>p", ":Lazy<CR>", {desc="Lazy"})
 
 -- NOTE: GIT keybindings
-k("n", "<leader>db", ":DapToggleBreakpoint<CR>", {desc="Toggle BreakPoint"})
-k("n", "<leader>dp", ":lua require('dapui').toggle()<CR>", {desc="Open Debugger"})
 k("n", "<leader>gj", ":lua require 'gitsigns'.next_hunk()<CR>", {desc="Next hunk"})
 k("n", "<leader>gk", ":lua require 'gitsigns'.prev_hunk()<CR>", {desc="Previous hunk"})
 k("n", "<leader>gl", ":lua require 'gitsigns'.blame_line()<CR>", {desc="Blame Line"})
