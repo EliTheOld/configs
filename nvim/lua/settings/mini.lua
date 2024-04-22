@@ -3,7 +3,7 @@ require("mini.tabline").setup({
 	set_vim_settings = true,
 	tabpage_section = "left",
 })
--- require('mini.hues').setup({ background = '#282828', foreground = '#ebdbb2', n_hues = 1, saturation = "high", accent = "orange" })
+require("mini.pairs").setup()
 require("mini.jump").setup()
 require("mini.jump2d").setup()
 require("mini.comment").setup()
@@ -11,12 +11,16 @@ require("mini.extra").setup()
 require("mini.diff").setup()
 require("mini.indentscope").setup()
 require("mini.notify").setup()
--- require("mini.starter").setup()
 require("mini.surround").setup()
 require("mini.files").setup()
 require("mini.test").setup()
 require("mini.bufremove").setup()
-require("mini.completion").setup()
+require("mini.completion").setup({
+	window = {
+		info = { height = 25, width = 80, border = "double", style = "minimal", relative = "cursor" },
+		signature = { height = 25, width = 80, border = "double", style = "minimal", relative = "cursor" },
+	},
+})
 require("mini.fuzzy").setup()
 require("mini.ai").setup() -- alternative to treesitter textobjects
 require("mini.animate").setup({
