@@ -1,6 +1,6 @@
 require("gruvbox").setup({
     contrast = "hard", -- can be "hard", "soft" or empty string
-    transparent_mode = false,
+    transparent_mode = true,
 })
 require("rose-pine").setup({
     variant = "main", -- auto, main, moon, or dawn
@@ -16,4 +16,6 @@ require("rose-pine").setup({
         transparency = false,
     },
 })
-vim.cmd("colorscheme gruvbox")
+require('everblush').setup()
+-- vim.o.background = "dark" -- or "light" for light mode
+vim.cmd("colorscheme everblush")

@@ -43,6 +43,7 @@ require("lazy").setup({
 
 	-- NOTE: COLOR schemes
 	"ellisonleao/gruvbox.nvim",
+    { 'Everblush/nvim', name = 'everblush' },
 	"rose-pine/neovim",
 
 	-- NOTE: UI plugins
