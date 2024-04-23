@@ -9,7 +9,19 @@ vim.g.maplocalleader = " "
 
 vim.keymap.set('i', '<Tab>',   [[pumvisible() ? "\<C-n>" : "\<Tab>"]],   { expr = true })
 vim.keymap.set('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
-
+-- NOTE: CODEIUM keybindings
+vim.keymap.set("i", "<C-y>", function()
+	return vim.fn["codeium#Accept"]()
+end, { expr = true, silent = true })
+vim.keymap.set("i", "<c-n>", function()
+	return vim.fn["codeium#CycleCompletions"](1)
+end, { expr = true, silent = true })
+vim.keymap.set("i", "<c-p>", function()
+	return vim.fn["codeium#CycleCompletions"](-1)
+end, { expr = true, silent = true })
+vim.keymap.set("i", "<c-x>", function()
+	return vim.fn["codeium#Clear"]()
+end, { expr = true, silent = true })
 -- Normal --
 -- Better window navigation
 k("n", "<C-h>", "<C-w>h", opts)
