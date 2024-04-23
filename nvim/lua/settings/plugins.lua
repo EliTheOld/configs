@@ -15,6 +15,7 @@ vim.g.maplocalleader = " "
 
 require("lazy").setup({
 	-- NOTE: LSP plugins
+    "Exafunction/codeium.vim",
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	"stevearc/conform.nvim",
 	"nvim-lua/plenary.nvim",
