@@ -43,7 +43,6 @@ require("lazy").setup({
 
 	-- NOTE: COLOR schemes
 	"ellisonleao/gruvbox.nvim",
-	{ "Everblush/nvim", name = "everblush" },
 	"rose-pine/neovim",
 
 	-- NOTE: UI plugins
@@ -53,48 +52,43 @@ require("lazy").setup({
 	"nvim-tree/nvim-web-devicons",
 
 	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
-
-	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 
 	-- WARN: mini plugins
 	{ "echasnovski/mini.nvim", version = false },
-	-- {
-	-- 	"echasnovski/mini.statusline",
-	-- 	event = "VeryLazy",
-	-- 	opts = function()
-	-- 		return {
-	-- 			content = {
-	-- 				active = function()
-	-- 					local m = require("mini.statusline")
-	-- 					local mode, mode_hl = m.section_mode({ trunc_width = 120 })
-	-- 					local spell = vim.wo.spell and (m.is_truncated(120) and "S" or "SPELL") or ""
-	-- 					local git = m.section_git({ trunc_width = 75 })
-	-- 					local diagnostics = m.section_diagnostics({ trunc_width = 75 })
-	-- 					local searchcount = m.section_searchcount({ trunc_width = 75 })
-	-- 					local filename = m.section_filename({ trunc_width = 60 })
-	-- 					local location = m.section_location({ trunc_width = 75 })
-	-- 					return m.combine_groups({
-	-- 						{ hl = mode_hl, strings = (m.is_truncated(250) and { mode }) },
-	-- 						"%<", -- Mark general truncate point
-	-- 						{ hl = "Function", strings = { diagnostics, git } },
-	-- 						"%=", -- End left alignment
-	-- 						{ hl = "Function", strings = { searchcount } },
-	-- 						{ hl = "Function", strings = { filename } },
-	-- 						{ hl = mode_hl, strings = { spell, location } },
-	-- 					})
-	-- 				end,
-	-- 			},
-	-- 		}
-	-- 	end,
-	-- 	config = function(_, opts)
-	-- 		require("mini.statusline").setup(opts)
-	-- 		vim.opt.laststatus = 3
-	-- 	end,
-	-- },
+	{
+		"echasnovski/mini.statusline",
+		event = "VeryLazy",
+		opts = function()
+			return {
+				content = {
+					active = function()
+						local m = require("mini.statusline")
+						local mode, mode_hl = m.section_mode({ trunc_width = 120 })
+						local spell = vim.wo.spell and (m.is_truncated(120) and "S" or "SPELL") or ""
+						local git = m.section_git({ trunc_width = 75 })
+						local diagnostics = m.section_diagnostics({ trunc_width = 75 })
+						local searchcount = m.section_searchcount({ trunc_width = 75 })
+						local filename = m.section_filename({ trunc_width = 60 })
+						local location = m.section_location({ trunc_width = 75 })
+						return m.combine_groups({
+							{ hl = mode_hl, strings = (m.is_truncated(250) and { mode }) },
+							"%<", -- Mark general truncate point
+							{ hl = "Function", strings = { diagnostics, git } },
+							"%=", -- End left alignment
+							{ hl = "Function", strings = { searchcount } },
+							{ hl = "Function", strings = { filename } },
+							{ hl = mode_hl, strings = { spell, location } },
+						})
+					end,
+				},
+			}
+		end,
+		config = function(_, opts)
+			require("mini.statusline").setup(opts)
+			vim.opt.laststatus = 3
+		end,
+	},
 })

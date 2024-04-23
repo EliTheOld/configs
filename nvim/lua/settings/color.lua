@@ -16,6 +16,5 @@ require("rose-pine").setup({
         transparency = false,
     },
 })
-require('everblush').setup()
 -- vim.o.background = "dark" -- or "light" for light mode
-vim.cmd("colorscheme everblush")
+vim.cmd("colorscheme rose-pine")
