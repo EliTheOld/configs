@@ -42,9 +42,7 @@ require("lazy").setup({
 	},
 
 	-- NOTE: COLOR schemes
-	"ellisonleao/gruvbox.nvim",
-	"rose-pine/neovim",
-
+    "sainnhe/sonokai",
 	-- NOTE: UI plugins
 	"sanfusu/neovim-undotree",
 	"nvim-telescope/telescope-project.nvim",
