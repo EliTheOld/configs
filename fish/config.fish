@@ -1,5 +1,5 @@
 if status is-interactive
-	fastfetch
+	fastfetch -c paleofetch.jsonc
 end
 
 function fish_greeting
@@ -14,7 +14,6 @@ alias lt='eza -aT --color=always --group-directories-first --icons' # tree listi
 alias l.="eza -a | egrep '^\.'"                                     # show only dotfiles
 alias cat='batcat --theme base16-256 --style full'
 alias wtr='curl wttr.in'
-# starship init fish | source
 function fish_user_key_bindings
     fzf --fish | source
 end
