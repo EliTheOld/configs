@@ -43,6 +43,10 @@ require("lazy").setup({
 
 	-- NOTE: COLOR schemes
     "sainnhe/sonokai",
+    "sainnhe/gruvbox-material",
+    "sainnhe/everforest",
+    "sainnhe/edge",
+
 	-- NOTE: UI plugins
 	"sanfusu/neovim-undotree",
 	"nvim-telescope/telescope-project.nvim",
