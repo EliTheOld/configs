@@ -106,7 +106,7 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 # bindsym $mod+p exec /usr/local/bin/switch-audio-port
-bindsym $mod+w exec chromium
+bindsym $mod+w exec firefox
 bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 set $ws1 "1: "
 set $ws2 "2: "
@@ -119,7 +119,7 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 assign [class="wezterm"] $ws1
-assign [class="(?i)chromium"] $ws2
+assign [class="(?i)firefox"] $ws2
 assign [class="dolphin"] $ws3
 
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -172,7 +172,7 @@ bar {
     # status_command i3status -c ~/.config/i3status/i3status.conf
 
     status_command ~/bumblebee-status/bumblebee-status \
-        -m layout-xkbswitch brightness pamixer memory battery-upower time date docker_ps system \
+        -m arch-updates layout-xkbswitch brightness pamixer memory battery-upower time date docker_ps system \
         -p  time.format=" %H:%M" date.format=" %a, %d %b %Y" memory.format="{used}" \
         -t moonlight-powerline
 
