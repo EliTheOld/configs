@@ -8,5 +8,7 @@ require("settings.hlargs")
 require("settings.mini")
 require("settings.telescope")
 require("settings.treesitter")
+require("settings.line")
+require("settings.tabline")
+require("settings.cmp")
 require("settings.langservers")
-vim.g.codeium_enabled = false

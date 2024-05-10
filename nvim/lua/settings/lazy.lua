@@ -15,7 +15,12 @@ vim.g.maplocalleader = " "
 
 require("lazy").setup({
 	-- NOTE: LSP plugins
-	"Exafunction/codeium.vim",
+	"neovim/nvim-lspconfig",
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-cmdline",
+	"hrsh7th/nvim-cmp",
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	"stevearc/conform.nvim",
 	"nvim-lua/plenary.nvim",
@@ -42,14 +47,25 @@ require("lazy").setup({
 	},
 
 	-- NOTE: COLOR schemes
-    "catppuccin/nvim",
+	"catppuccin/nvim",
 
 	-- NOTE: UI plugins
 	"sanfusu/neovim-undotree",
 	"nvim-telescope/telescope-project.nvim",
 	"lewis6991/gitsigns.nvim",
 	"nvim-tree/nvim-web-devicons",
+	"nvim-lualine/lualine.nvim",
 
+	{
+		"romgrk/barbar.nvim",
+		dependencies = {
+			"lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+			"nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
+		},
+		init = function()
+			vim.g.barbar_auto_setup = false
+		end,
+	},
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -57,37 +73,37 @@ require("lazy").setup({
 
 	-- WARN: mini plugins
 	{ "echasnovski/mini.nvim", version = false },
-	{
-		"echasnovski/mini.statusline",
-		event = "VeryLazy",
-		opts = function()
-			return {
-				content = {
-					active = function()
-						local m = require("mini.statusline")
-						local mode, mode_hl = m.section_mode({ trunc_width = 120 })
-						local spell = vim.wo.spell and (m.is_truncated(120) and "S" or "SPELL") or ""
-						local git = m.section_git({ trunc_width = 75 })
-						local diagnostics = m.section_diagnostics({ trunc_width = 75 })
-						local searchcount = m.section_searchcount({ trunc_width = 75 })
-						local filename = m.section_filename({ trunc_width = 60 })
-						local location = m.section_location({ trunc_width = 75 })
-						return m.combine_groups({
-							{ hl = mode_hl, strings = (m.is_truncated(250) and { mode }) },
-							"%<", -- Mark general truncate point
-							{ hl = "Function", strings = { diagnostics, git } },
-							"%=", -- End left alignment
-							{ hl = "Function", strings = { searchcount } },
-							{ hl = "Function", strings = { filename } },
-							{ hl = mode_hl, strings = { spell, location } },
-						})
-					end,
-				},
-			}
-		end,
-		config = function(_, opts)
-			require("mini.statusline").setup(opts)
-			vim.opt.laststatus = 3
-		end,
-	},
+	-- {
+	-- 	"echasnovski/mini.statusline",
+	-- 	event = "VeryLazy",
+	-- 	opts = function()
+	-- 		return {
+	-- 			content = {
+	-- 				active = function()
+	-- 					local m = require("mini.statusline")
+	-- 					local mode, mode_hl = m.section_mode({ trunc_width = 120 })
+	-- 					local spell = vim.wo.spell and (m.is_truncated(120) and "S" or "SPELL") or ""
+	-- 					local git = m.section_git({ trunc_width = 75 })
+	-- 					local diagnostics = m.section_diagnostics({ trunc_width = 75 })
+	-- 					local searchcount = m.section_searchcount({ trunc_width = 75 })
+	-- 					local filename = m.section_filename({ trunc_width = 60 })
+	-- 					local location = m.section_location({ trunc_width = 75 })
+	-- 					return m.combine_groups({
+	-- 						{ hl = mode_hl, strings = (m.is_truncated(250) and { mode }) },
+	-- 						"%<", -- Mark general truncate point
+	-- 						{ hl = "Function", strings = { diagnostics, git } },
+	-- 						"%=", -- End left alignment
+	-- 						{ hl = "Function", strings = { searchcount } },
+	-- 						{ hl = "Function", strings = { filename } },
+	-- 						{ hl = mode_hl, strings = { spell, location } },
+	-- 					})
+	-- 				end,
+	-- 			},
+	-- 		}
+	-- 	end,
+	-- 	config = function(_, opts)
+	-- 		require("mini.statusline").setup(opts)
+	-- 		vim.opt.laststatus = 3
+	-- 	end,
+	-- },
 })

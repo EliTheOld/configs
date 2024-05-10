@@ -1,8 +1,8 @@
-require("mini.tabline").setup({
-	show_icons = true,
-	set_vim_settings = true,
-	tabpage_section = "left",
-})
+-- require("mini.tabline").setup({
+--	show_icons = true,
+--	set_vim_settings = true,
+--	tabpage_section = "left",
+-- })
 require("mini.pairs").setup()
 require("mini.jump").setup()
 require("mini.jump2d").setup()
@@ -15,12 +15,12 @@ require("mini.surround").setup()
 require("mini.files").setup()
 require("mini.test").setup()
 require("mini.bufremove").setup()
-require("mini.completion").setup({
-	window = {
-		info = { height = 25, width = 80, border = "double", style = "minimal", relative = "cursor" },
-		signature = { height = 25, width = 80, border = "double", style = "minimal", relative = "cursor" },
-	},
-})
+-- require("mini.completion").setup({
+-- 	window = {
+-- 		info = { height = 25, width = 80, border = "double", style = "minimal", relative = "cursor" },
+-- 		signature = { height = 25, width = 80, border = "double", style = "minimal", relative = "cursor" },
+-- 	},
+-- })
 require("mini.fuzzy").setup()
 require("mini.ai").setup() -- alternative to treesitter textobjects
 require("mini.animate").setup({
