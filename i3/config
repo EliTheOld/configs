@@ -1,4 +1,4 @@
-font pango:Iosevka Nerd Font 12
+font pango:FiraCode Nerd Font 12
 set $mod Mod4
 workspace_layout default
 new_window pixel 0
@@ -67,9 +67,9 @@ bindcode $mod+Shift+79 	 move container to workspace  $ws7
 bindcode $mod+Shift+80 	 move container to workspace  $ws8
 bindcode $mod+Shift+81 	 move container to workspace  $ws9
 bindcode $mod+Shift+90 	 move container to workspace  $ws10
-bindsym $mod+Return exec alacritty
-bindsym $mod+t exec alacritty
-bindsym $mod+r exec dmenu_run -nb '#282828' -nf '#ebdbb2' -sb '#d65d0e' -sf '#282828' -fn 'UbuntuMono-11'
+bindsym $mod+Return exec wezterm
+bindsym $mod+t exec wezterm
+bindsym $mod+r exec dmenu_run -nb '#1e1e2e' -nf '#cdd6f4' -sb '#b4befe' -sf '#1e1e2e' -fn 'FiraCode Nerd Font-12'
 bindsym $mod+q kill
 # bindsym $mod+Shift+r resize
 bindsym $mod+Shift+r restart
@@ -106,7 +106,7 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 # bindsym $mod+p exec /usr/local/bin/switch-audio-port
-bindsym $mod+w exec /usr/bin/firefox
+bindsym $mod+w exec chromium
 bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 set $ws1 "1: "
 set $ws2 "2: "
@@ -118,21 +118,21 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
-assign [class="alacritty"] $ws1
-assign [class="(?i)firefox"] $ws2
-assign [class="pcmanfm"] $ws3
+assign [class="wezterm"] $ws1
+assign [class="(?i)chromium"] $ws2
+assign [class="dolphin"] $ws3
 
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id numlockx on
-exec --no-startup-id xset s 480 dpms 600 600 600
-exec --no-startup-id dbus-launch dunst
-exec_always --no-startup-id dunst
-exec_always --no-startup-id autotiling
-exec_always --no-startup-id blueman-applet
+# exec --no-startup-id xset s 480 dpms 600 600 600
+# exec --no-startup-id dbus-launch dunst
+# exec_always --no-startup-id dunst
+# exec_always --no-startup-id autotiling
+# exec_always --no-startup-id blueman-applet
 exec_always --no-startup-id nm-applet
 
-exec_always --no-startup-id feh --bg-scale  ~/Pictures/solar-system.jpg
+exec_always --no-startup-id feh --bg-scale  ~/Pictures/sea.jpg
 exec_always "setxkbmap -model pc104 -layout us,ru -variant colemak, -option grp:win_space_toggle"
 
 for_window [class="Yad" instance="yad"] floating enable
@@ -146,18 +146,18 @@ for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enabl
 for_window [class="Pamac-manager"] floating enable
 for_window [class="Blueman"] floating enable
 for_window [window_role="About"] floating enable
-set $blue   		#458588
-set $red		    #cc241d
-set $white		    #ebdbb2
-set $black		    #1d2021
-set $purple		    #b16286
-set $darkgrey		#282828
-set $grey		    #b0b5bd
-set $mediumgrey		#504945
-set $yellow     	#d79921
-set $green          #98971a
-set $orange         #d65d0e
-set $cream          #bdae93
+set $blue   		#89b4fa	
+set $red		    #f38ba8
+set $white		    #cdd6f4
+set $black		    #1e1e2e
+set $purple		    #b4befe
+set $darkgrey		#313244
+set $mediumgrey		#585b70
+set $grey		    #9399b2
+set $yellow     	#f9e2af
+set $green          #a6e3a1
+set $orange         #fab387
+set $cream          #f5e0dc
 
 default_border pixel 3
 
@@ -171,10 +171,10 @@ bar {
     # status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks
     # status_command i3status -c ~/.config/i3status/i3status.conf
 
-    status_command /usr/bin/bumblebee-status \
-        -m arch_update layout-xkbswitch brightness pamixer memory battery-upower time date docker_ps system \
+    status_command ~/bumblebee-status/bumblebee-status \
+        -m layout-xkbswitch brightness pamixer memory battery-upower time date docker_ps system \
         -p  time.format=" %H:%M" date.format=" %a, %d %b %Y" memory.format="{used}" \
-        -t gruvbox-powerline
+        -t moonlight-powerline
 
 
 		font pango:Iosevka Nerd Font 12
