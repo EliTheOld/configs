@@ -69,7 +69,7 @@ bindcode $mod+Shift+81 	 move container to workspace  $ws9
 bindcode $mod+Shift+90 	 move container to workspace  $ws10
 bindsym $mod+Return exec wezterm
 bindsym $mod+t exec wezterm
-bindsym $mod+r exec dmenu_run -nb '#1e1e2e' -nf '#cdd6f4' -sb '#b4befe' -sf '#1e1e2e' -fn 'FiraCode Nerd Font-12'
+bindsym $mod+r exec dmenu_run -nb '#1e1e2e' -nf '#cdd6f4' -sb '#b4befe' -sf '#1e1e2e' -fn 'FiraCode Nerd Font-14'
 bindsym $mod+q kill
 # bindsym $mod+Shift+r resize
 bindsym $mod+Shift+r restart
@@ -108,11 +108,11 @@ bindsym XF86AudioPrev exec playerctl previous
 # bindsym $mod+p exec /usr/local/bin/switch-audio-port
 bindsym $mod+w exec firefox
 bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
-set $ws1 "1: "
-set $ws2 "2: "
-set $ws3 "3:  "
-set $ws4 "4: "
-set $ws5 "5: "
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5:󰖺 "
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -132,7 +132,8 @@ exec --no-startup-id numlockx on
 # exec_always --no-startup-id blueman-applet
 exec_always --no-startup-id nm-applet
 
-exec_always --no-startup-id feh --bg-scale  ~/Pictures/sea.jpg
+# exec_always --no-startup-id feh --bg-scale  ~/Pictures/catppuccin-wallpapers/arch-magenta-blue-1920x1080.png
+exec_always --no-startup-id nitrogen --restore
 exec_always "setxkbmap -model pc104 -layout us,ru -variant colemak, -option grp:win_space_toggle"
 
 for_window [class="Yad" instance="yad"] floating enable
@@ -163,18 +164,18 @@ default_border pixel 3
 
 # define colors for windows:
 #class		        	    border		bground		text		indicator	child_border
-client.focused		    	$orange 	$darkgrey	$white		$orange	$orange
+client.focused		    	$blue 	    $darkgrey	$white		$blue	    $blue
 client.unfocused	    	$darkgrey	$darkgrey  	$white		$darkgrey  	$darkgrey
-client.focused_inactive		$mediumgrey	$mediumgrey	$white		$black		$darkgrey
+client.focused_inactive		$blue	    $mediumgrey	$white		$blue		$blue
 client.urgent		    	$red	    $red	    $white		$yellow 	$yellow
 bar {
     # status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks
     # status_command i3status -c ~/.config/i3status/i3status.conf
 
-    status_command ~/bumblebee-status/bumblebee-status \
-        -m arch-updates layout-xkbswitch brightness pamixer memory battery-upower time date docker_ps system \
-        -p  time.format=" %H:%M" date.format=" %a, %d %b %Y" memory.format="{used}" \
-        -t moonlight-powerline
+    status_command /usr/bin/bumblebee-status \
+        -m arch-update layout-xkbswitch brightness pamixer memory battery time date \
+        -p  time.format=" %H:%M" date.format="%d.%m.%y" memory.format="{used}" \
+        -t iceberg-rainbow
 
 
 		font pango:Iosevka Nerd Font 12
@@ -182,13 +183,13 @@ bar {
 		    tray_padding 0
 strip_workspace_numbers yes
 		    colors {
-		    separator          $darkgrey
-		    background         $darkgrey
+		    separator          $black
+		    background         $black
 		    statusline         $white
 #                          	border 		bg		    txt		    indicator
-		focused_workspace	$yellow	   	$yellow		$darkgrey	$purple
-		active_workspace	$blue      	$mediumgrey	$darkgrey	$purple
-		inactive_workspace	$darkgrey   $darkgrey	$grey		$purple
+		focused_workspace	$blue	   	$blue		$darkgrey	$purple
+		active_workspace	$blue      	$black      $green	    $purple
+		inactive_workspace	$black      $black	    $green		$purple
 		urgent_workspace	$red	    $red	    $white		$purple
 	}
 }
