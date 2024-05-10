@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
@@ -16,11 +17,19 @@ vim.g.maplocalleader = " "
 require("lazy").setup({
 	-- NOTE: LSP plugins
 	"neovim/nvim-lspconfig",
-	"hrsh7th/cmp-nvim-lsp",
+	-- Cmp
+	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-path",
 	"hrsh7th/cmp-cmdline",
-	"hrsh7th/nvim-cmp",
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-nvim-lua",
+	"saadparwaiz1/cmp_luasnip",
+
+	-- Snippets
+	"L3MON4D3/LuaSnip",
+	"rafamadriz/friendly-snippets",
+
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	"stevearc/conform.nvim",
 	"nvim-lua/plenary.nvim",
@@ -55,17 +64,7 @@ require("lazy").setup({
 	"lewis6991/gitsigns.nvim",
 	"nvim-tree/nvim-web-devicons",
 	"nvim-lualine/lualine.nvim",
-
-	{
-		"romgrk/barbar.nvim",
-		dependencies = {
-			"lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
-			"nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
-		},
-		init = function()
-			vim.g.barbar_auto_setup = false
-		end,
-	},
+	{ "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
