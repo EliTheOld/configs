@@ -67,8 +67,8 @@ bindcode $mod+Shift+79 	 move container to workspace  $ws7
 bindcode $mod+Shift+80 	 move container to workspace  $ws8
 bindcode $mod+Shift+81 	 move container to workspace  $ws9
 bindcode $mod+Shift+90 	 move container to workspace  $ws10
-bindsym $mod+Return exec wezterm
-bindsym $mod+t exec wezterm
+bindsym $mod+Return exec kitty
+bindsym $mod+t exec kitty
 bindsym $mod+r exec dmenu_run -nb '#1e1e2e' -nf '#cdd6f4' -sb '#b4befe' -sf '#1e1e2e' -fn 'FiraCode Nerd Font-14'
 bindsym $mod+a exec ~/.config/polybar/material/scripts/launcher.sh
 bindsym $mod+q kill

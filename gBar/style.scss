@@ -1,25 +1,25 @@
 // colorscheme(dracula)
 // See https://github.com/dracula/dracula-theme/blob/master/LICENSE or dracula/LICENSE for the license
-$bg: #282828;
-$fg: #ebdbb2;
-$inactive: #a89984;
-$darkblue: #83a598;
-$cyan: #8ec07c;
-$green: #98971a;
-$orange: #d65d0e;
+$bg: #000000;
+$fg: #000000;
+$inactive: #7f848e;
+$darkgrey: #434852;
+$cyan: #2bbac5;
+$green: #89ca78;
+$orange: #d19a66;
 $pink: #b16286;
-$purple: #d3869b;
-$red: #cc241d;
-$yellow: #d79921;
+$purple: #d55fde;
+$red: #ef596f;
+$yellow: #e5c07b;
 
 
-$btblue: #076678;
+$btblue: #61afef;
 
 $textsize: 16px;
 
 *{
     all: unset;
-    font-family: "CaskaydiaCove NF";
+    font-family: "Fira Code";
 }
 
 .popup {
@@ -38,7 +38,8 @@ menu {
 }
 
 .bar,tooltip{
-    background-color: $bg;
+    // background-color: $bg;
+    background-color: transparent;
     border-radius: 16px;
 }
 
@@ -97,7 +98,7 @@ trough {
     border-radius: 3px;
     border-width: 1px;
     border-style: none;
-    background-color: $inactive;
+    background-color: $darkgrey;
     // margin-top: 2px;
     min-width: 4px;
     min-height: 4px;
@@ -126,12 +127,12 @@ highlight {
 
 .audio-icon {
     font-size: 24px;
-    color: $orange;
+    color: $cyan;
 }
 
 .audio-volume {
     trough {
-        background-color: $inactive;
+        background-color: $darkgrey;
     }
 
     slider {
@@ -139,16 +140,16 @@ highlight {
     }
 
     highlight {
-        background-color: $orange;
+        background-color: $btblue;
     }
 
     font-size: 16px;
-    color: $orange;
+    color: $btblue;
 }
 
 .mic-icon {
     font-size: 24px;
-    color: $purple;
+    color: $pink;
     // margin-right: 0px;
 }
 
@@ -162,11 +163,11 @@ highlight {
     }
 
     highlight {
-        background-color: $purple;
+        background-color: $pink;
     }
 
     font-size: 16px;
-    color: $purple;
+    color: $pink;
 }
 
 .package-outofdate {
@@ -193,7 +194,7 @@ highlight {
 }
 
 .disk-widget * {
-    color: $purple;
+    color: $fg;
     font-size: $textsize;
 }
 .disk-util-progress {
@@ -209,7 +210,7 @@ highlight {
 }
 
 .ram-widget * {
-    color: $yellow;
+    color: $red;
     font-size: $textsize;
 }
 .ram-util-progress {
@@ -225,7 +226,7 @@ highlight {
 }
 
 .cpu-widget * {
-    color: $green;
+    color: $orange;
     font-size: $textsize;
 }
 .cpu-util-progress {
@@ -241,7 +242,7 @@ highlight {
 }
 
 .battery-charging {
-    color: $orange;
+    color: $green;
 }
 
 .battery-warning {
@@ -249,7 +250,7 @@ highlight {
 }
 
 .network-data-text {
-    color: $green;
+    color: $fg;
     font-size: $textsize;
 }
 
@@ -308,19 +309,19 @@ highlight {
     font-size: 14px;
 }
 .ws-inactive {
-    color: $cyan;
+    color: $darkgrey;
     font-size: 14px;
 }
 .ws-visible {
-    color: $darkblue;
+    color: $inactive;
     font-size: 14px;
 }
 .ws-current {
-    color: $yellow;
+    color: $fg;
     font-size: 14px;
 }
 .ws-active {
-    color: $orange;
+    color: $fg;
     font-size: 14px;
 }
 

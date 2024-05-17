@@ -15,8 +15,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 require("lazy").setup({
-	-- NOTE: LSP plugins
-	"neovim/nvim-lspconfig",
 	-- Cmp
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-buffer",
@@ -30,6 +28,8 @@ require("lazy").setup({
 	"L3MON4D3/LuaSnip",
 	"rafamadriz/friendly-snippets",
 
+	-- NOTE: LSP plugins
+	"neovim/nvim-lspconfig",
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	"stevearc/conform.nvim",
 	"nvim-lua/plenary.nvim",
@@ -57,6 +57,8 @@ require("lazy").setup({
 
 	-- NOTE: COLOR schemes
 	"catppuccin/nvim",
+    "olimorris/onedarkpro.nvim",
+    "navarasu/onedark.nvim",
 
 	-- NOTE: UI plugins
 	"sanfusu/neovim-undotree",

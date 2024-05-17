@@ -2,7 +2,7 @@
 
 function powermenu {
 	options=" Cancel\n Lock\n󰤄 Sleep\n󰈆 Logout\n Restart\n Shutdown"
-	selected=$(echo -e $options | wofi -i --dmenu)
+	selected=$(echo -e $options | wofi -i -c ~/configs/hypr/wofi/config -s ~/configs/hypr/wofi/style.css  --dmenu)
 	if [[ $selected = " Lock" ]]; then
 		hyprlock
 	elif [[ $selected = "󰤄 Sleep" ]]; then
