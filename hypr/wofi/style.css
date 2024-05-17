@@ -1,0 +1,56 @@
+#entry {
+  border-radius: 3px;
+  padding: 2px 3px 2px 3px;
+}
+
+#entry:selected {
+  background-color: #434852;
+}
+
+#text:selected {
+  color: #eeeeee;
+}
+
+#window {
+  padding: 2px;
+  background-color: rgba(53, 59, 73, 0.30);
+  border: 4px;
+  border-radius: 8pt;
+  font-family: 'Fira Code';
+  font-size: 22px;
+}
+
+#input {
+  border: 2px solid #61afef;
+  background-color: #ffffff;
+  color: #7f848e;
+  padding: 3px 5px 3px 5px;
+  border-radius: 5px;
+}
+
+#inner-box {
+  color: #434852;
+  padding: 2px;
+  background-color: transparent;
+}
+
+#outer-box {
+  margin: 15px;
+  background-color: transparent;
+}
+
+#scroll {
+  margin-top: 10px;
+  background-color: transparent;
+  border: none;
+}
+
+#text {
+  padding: 3px;
+  background-color: transparent;
+}
+
+#img {
+  background-color: transparent;
+  padding: 5px;
+}
