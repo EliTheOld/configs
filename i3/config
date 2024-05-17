@@ -70,6 +70,7 @@ bindcode $mod+Shift+90 	 move container to workspace  $ws10
 bindsym $mod+Return exec wezterm
 bindsym $mod+t exec wezterm
 bindsym $mod+r exec dmenu_run -nb '#1e1e2e' -nf '#cdd6f4' -sb '#b4befe' -sf '#1e1e2e' -fn 'FiraCode Nerd Font-14'
+bindsym $mod+a exec ~/.config/polybar/material/scripts/launcher.sh
 bindsym $mod+q kill
 # bindsym $mod+Shift+r resize
 bindsym $mod+Shift+r restart
@@ -108,16 +109,21 @@ bindsym XF86AudioPrev exec playerctl previous
 # bindsym $mod+p exec /usr/local/bin/switch-audio-port
 bindsym $mod+w exec firefox
 bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
-set $ws1 "1: "
-set $ws2 "2: "
-set $ws3 "3: "
-set $ws4 "4: "
-set $ws5 "5:󰖺 "
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+# set $ws1 "1: "
+# set $ws2 "2: "
+# set $ws3 "3: "
+# set $ws4 "4: "
+# set $ws5 "5:󰖺 "
+set $ws6 "1:1"
+set $ws6 "2:2"
+set $ws6 "3:3"
+set $ws6 "4:4"
+set $ws6 "5:5"
+# set $ws6 "6"
+# set $ws7 "7"
+# set $ws8 "8"
+# set $ws9 "9"
+# set $ws10 "10"
 assign [class="wezterm"] $ws1
 assign [class="(?i)firefox"] $ws2
 assign [class="dolphin"] $ws3
@@ -131,7 +137,7 @@ exec --no-startup-id numlockx on
 # exec_always --no-startup-id autotiling
 # exec_always --no-startup-id blueman-applet
 exec_always --no-startup-id nm-applet
-
+exec_always --no-startup-id ~/.config/polybar/material/launch.sh
 # exec_always --no-startup-id feh --bg-scale  ~/Pictures/catppuccin-wallpapers/arch-magenta-blue-1920x1080.png
 exec_always --no-startup-id nitrogen --restore
 exec_always "setxkbmap -model pc104 -layout us,ru -variant colemak, -option grp:win_space_toggle"
@@ -169,28 +175,30 @@ client.unfocused	    	$darkgrey	$darkgrey  	$white		$darkgrey  	$darkgrey
 client.focused_inactive		$blue	    $mediumgrey	$white		$blue		$blue
 client.urgent		    	$red	    $red	    $white		$yellow 	$yellow
 bar {
+    mode hide
+    hidden_state hide
+    modifier Mod1
     # status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks
     # status_command i3status -c ~/.config/i3status/i3status.conf
-
-    status_command /usr/bin/bumblebee-status \
-        -m arch-update layout-xkbswitch brightness pamixer memory battery time date \
-        -p  time.format=" %H:%M" date.format="%d.%m.%y" memory.format="{used}" \
-        -t iceberg-rainbow
-
-
-		font pango:Iosevka Nerd Font 12
-	    	position top
-		    tray_padding 0
-strip_workspace_numbers yes
-		    colors {
-		    separator          $black
-		    background         $black
-		    statusline         $white
-#                          	border 		bg		    txt		    indicator
-		focused_workspace	$blue	   	$blue		$darkgrey	$purple
-		active_workspace	$blue      	$black      $green	    $purple
-		inactive_workspace	$black      $black	    $green		$purple
-		urgent_workspace	$red	    $red	    $white		$purple
-	}
+#     status_command /usr/bin/bumblebee-status \
+#         -m layout-xkbswitch brightness pamixer memory battery time date \
+#         -p  time.format=" %H:%M" date.format="%d.%m.%y" memory.format="{used}" \
+#         -t iceberg
+#
+#
+# 		font pango:Iosevka Nerd Font 12
+# 	    	position top
+# 		    tray_padding 0
+# strip_workspace_numbers yes
+# 		    colors {
+# 		    separator          $black
+# 		    background         $black
+# 		    statusline         $white
+# #                          	border 		bg		    txt		    indicator
+# 		focused_workspace	$blue	   	$blue		$darkgrey	$purple
+# 		active_workspace	$blue      	$black      $green	    $purple
+# 		inactive_workspace	$black      $black	    $green		$purple
+# 		urgent_workspace	$red	    $red	    $white		$purple
+# 	}
 }
 

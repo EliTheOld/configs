@@ -13,11 +13,10 @@ local config = wezterm.config_builder()
 -- This is where you actually apply your config choices
 
 
-
 -- For example, changing the color scheme:
-
-config.color_scheme = 'Catppuccin Mocha'
-config.window_background_opacity = 0.9
+config.color_scheme = 'Grayscale Dark (base16)'
+-- config.color_scheme = 'Catppuccin Mocha'
+config.window_background_opacity = 0.8
 config.font = wezterm.font 'FiraCode Nerd Font'
 config.font_size = 12.0
 config.harfbuzz_features = {"zero" , "ss01", "cv01", "cv06", "cv14", "ss05", "ss04", "ss09"}
