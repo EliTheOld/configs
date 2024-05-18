@@ -1,7 +1,7 @@
 // colorscheme(dracula)
 // See https://github.com/dracula/dracula-theme/blob/master/LICENSE or dracula/LICENSE for the license
 $bg: #000000;
-$fg: #000000;
+$fg: #ffffff;
 $inactive: #7f848e;
 $darkgrey: #434852;
 $cyan: #2bbac5;
@@ -37,9 +37,13 @@ menu {
     //background-color: #00cc00
 }
 
+.bar {
+    margin: 3px;
+}
+
 .bar,tooltip{
-    // background-color: $bg;
-    background-color: transparent;
+    background-color: $darkgrey;
+    // background-color: transparent;
     border-radius: 16px;
 }
 
@@ -132,7 +136,7 @@ highlight {
 
 .audio-volume {
     trough {
-        background-color: $darkgrey;
+        background-color: $inactive;
     }
 
     slider {
@@ -309,7 +313,7 @@ highlight {
     font-size: 14px;
 }
 .ws-inactive {
-    color: $darkgrey;
+    color: $green;
     font-size: 14px;
 }
 .ws-visible {

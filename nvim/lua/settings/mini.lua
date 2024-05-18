@@ -10,7 +10,12 @@ require("mini.comment").setup()
 require("mini.extra").setup()
 require("mini.diff").setup()
 require("mini.indentscope").setup()
-require("mini.notify").setup()
+require("mini.notify").setup({
+    window = {
+        border = "double",
+        winblend = 100,
+    },
+})
 require("mini.surround").setup()
 require("mini.files").setup()
 require("mini.test").setup()
