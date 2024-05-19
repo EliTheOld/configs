@@ -98,24 +98,29 @@ countdown () {
 # take shots
 shotnow () {
 	cd ${dir} && sleep 0.5 && grimblast copysave screen $dir/$file
+    notify-send "Screen shot saved!"
 }
 
 shot5 () {
 	countdown '5'
 	sleep 1 && cd ${dir} && grimblast copysave screen $dir/$file
+    notify-send "Screen shot saved!"
 }
 
 shot10 () {
 	countdown '10'
 	sleep 1 && cd ${dir} && grimblast copysave screen $dir/$file
+    notify-send "Screen shot saved!"
 }
 
 shotwin () {
 	cd ${dir} && grimblast copysave window $dir/$file
+    notify-send "Screen shot saved!"
 }
 
 shotarea () {
 	cd ${dir} && grimblast copysave area $dir/$file
+    notify-send "Screen shot saved!"
 }
 
 # Execute Command
