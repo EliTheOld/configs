@@ -38,7 +38,7 @@ k("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 k("n", "<S-l>", ":bnext<CR>", opts)
 k("n", "<S-h>", ":bprevious<CR>", opts)
-k("n", "<S-q>", ":bdelete<CR>", opts)
+k("n", "<C-b>d", ":bdelete<CR>", opts)
 
 -- Focus text in the middle of the screen after jumping down or up
 k("n", "<C-d>", "<C-d>zz", opts)
@@ -71,6 +71,7 @@ k("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- WARN: ALL keybindings from whichkey
 k("n", "<leader>b", ":lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>", {desc="Buffers"})
 k("n", "<leader>e", ":lua MiniFiles.open()<CR>", {desc="Files"})
+k("n", "<leader>E", ":Neotree<CR>", {desc="Files"})
 k("n", "<leader>w", ":w!<CR>", {desc="Save"})
 k("n", "<leader>q", ":q!<CR>", {desc="Quit"})
 k("n", "<leader>Q", ":bdelete<CR>", {desc="Delete Buffer"})
