@@ -1,8 +1,3 @@
--- require("mini.tabline").setup({
---	show_icons = true,
---	set_vim_settings = true,
---	tabpage_section = "left",
--- })
 require("mini.pairs").setup()
 require("mini.jump").setup()
 require("mini.jump2d").setup()
@@ -10,22 +5,8 @@ require("mini.comment").setup()
 require("mini.extra").setup()
 require("mini.diff").setup()
 require("mini.indentscope").setup()
-require("mini.notify").setup({
-    window = {
-        border = "double",
-        winblend = 100,
-    },
-})
 require("mini.surround").setup()
 require("mini.files").setup()
-require("mini.test").setup()
-require("mini.bufremove").setup()
--- require("mini.completion").setup({
--- 	window = {
--- 		info = { height = 25, width = 80, border = "double", style = "minimal", relative = "cursor" },
--- 		signature = { height = 25, width = 80, border = "double", style = "minimal", relative = "cursor" },
--- 	},
--- })
 require("mini.fuzzy").setup()
 require("mini.ai").setup() -- alternative to treesitter textobjects
 require("mini.animate").setup({
@@ -85,60 +66,7 @@ miniclue.setup({
 		delay = 200,
 		config = {
 			width = "auto",
-			border = "double",
+			border = "rounded",
 		},
 	},
 })
-
-local header_art = [[
-$$\    $$\ $$$$$$\ $$\      $$\ 
-$$ |   $$ |\_$$  _|$$$\    $$$ |
-$$ |   $$ |  $$ |  $$$$\  $$$$ |
-\$$\  $$  |  $$ |  $$\$$\$$ $$ |
- \$$\$$  /   $$ |  $$ \$$$  $$ |
-  \$$$  /    $$ |  $$ |\$  /$$ |
-   \$  /   $$$$$$\ $$ | \_/ $$ |
-    \_/    \______|\__|     \__|
-                                
-                                
-                                
-
-]]
-
-local starter = require("mini.starter")
-starter.setup({
-	evaluate_single = true,
-	items = nil,
-	--        {
-	-- 	{ action = "Open Projects", name = "Telescope projects", section = "Telescope" },
-	-- 	{ action = "tab G", name = "G: Fugitive", section = "Git" },
-	-- 	{ action = "Lazy sync", name = "U: Update Plugins", section = "Plugins" },
-	-- 	{ action = "enew", name = "E: New Buffer", section = "Builtin actions" },
-	-- 	{ action = "qall!", name = "Q: Quit Neovim", section = "Builtin actions" },
-	-- },
-	content_hooks = {
-		function(content)
-			local blank_content_line = { { type = "empty", string = "" } }
-			local section_coords = starter.content_coords(content, "section")
-			-- Insert backwards to not affect coordinates
-			for i = #section_coords, 1, -1 do
-				table.insert(content, section_coords[i].line + 1, blank_content_line)
-			end
-			return content
-		end,
-		starter.gen_hook.adding_bullet("» "),
-		starter.gen_hook.aligning("center", "center"),
-	},
-	header = header_art,
-	footer = os.date(),
-})
-
-vim.cmd([[
-  augroup MiniStarterJK
-    au!
-    au User MiniStarterOpened nmap <buffer> j <Cmd>lua MiniStarter.update_current_item('next')<CR>
-    au User MiniStarterOpened nmap <buffer> k <Cmd>lua MiniStarter.update_current_item('prev')<CR>
-    au User MiniStarterOpened nmap <buffer> <C-p> <Cmd>Telescope find_files<CR>
-    au User MiniStarterOpened nmap <buffer> <C-n> <Cmd>Telescope file_browser<CR>
-  augroup END
-]])

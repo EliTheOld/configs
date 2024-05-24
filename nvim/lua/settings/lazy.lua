@@ -56,11 +56,18 @@ require("lazy").setup({
 	},
 
 	-- NOTE: COLOR schemes
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
 	"catppuccin/nvim",
-    "olimorris/onedarkpro.nvim",
-    "navarasu/onedark.nvim",
+	"olimorris/onedarkpro.nvim",
+	"navarasu/onedark.nvim",
 
 	-- NOTE: UI plugins
+	"stevearc/dressing.nvim",
 	"sanfusu/neovim-undotree",
 	"nvim-telescope/telescope-project.nvim",
 	"lewis6991/gitsigns.nvim",
@@ -71,40 +78,27 @@ require("lazy").setup({
 		"nvim-telescope/telescope.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
-
+	{
+		"goolord/alpha-nvim",
+		config = function()
+			require("alpha").setup(require("alpha.themes.startify").config)
+		end,
+	},
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {
+			-- add any options here
+		},
+		dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			"rcarriga/nvim-notify",
+		},
+	},
 	-- WARN: mini plugins
 	{ "echasnovski/mini.nvim", version = false },
-	-- {
-	-- 	"echasnovski/mini.statusline",
-	-- 	event = "VeryLazy",
-	-- 	opts = function()
-	-- 		return {
-	-- 			content = {
-	-- 				active = function()
-	-- 					local m = require("mini.statusline")
-	-- 					local mode, mode_hl = m.section_mode({ trunc_width = 120 })
-	-- 					local spell = vim.wo.spell and (m.is_truncated(120) and "S" or "SPELL") or ""
-	-- 					local git = m.section_git({ trunc_width = 75 })
-	-- 					local diagnostics = m.section_diagnostics({ trunc_width = 75 })
-	-- 					local searchcount = m.section_searchcount({ trunc_width = 75 })
-	-- 					local filename = m.section_filename({ trunc_width = 60 })
-	-- 					local location = m.section_location({ trunc_width = 75 })
-	-- 					return m.combine_groups({
-	-- 						{ hl = mode_hl, strings = (m.is_truncated(250) and { mode }) },
-	-- 						"%<", -- Mark general truncate point
-	-- 						{ hl = "Function", strings = { diagnostics, git } },
-	-- 						"%=", -- End left alignment
-	-- 						{ hl = "Function", strings = { searchcount } },
-	-- 						{ hl = "Function", strings = { filename } },
-	-- 						{ hl = mode_hl, strings = { spell, location } },
-	-- 					})
-	-- 				end,
-	-- 			},
-	-- 		}
-	-- 	end,
-	-- 	config = function(_, opts)
-	-- 		require("mini.statusline").setup(opts)
-	-- 		vim.opt.laststatus = 3
-	-- 	end,
-	-- },
 })

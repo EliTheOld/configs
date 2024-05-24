@@ -1,10 +1,7 @@
 if vim.g.neovide then
-	vim.o.guifont = "Cascadia Code:h14" -- text below applies for VimScript
-	vim.g.neovide_transparency = 0.8
+	vim.o.guifont = "Fira Code:h14" -- text below applies for VimScript
+	vim.g.neovide_transparency = 1.0
 	vim.g.neovide_theme = "auto"
-	require("rose-pine").setup({
-		transparent = false,
-	})
 end
 vim.loader.enable()
 vim.opt.guicursor = ""
