@@ -70,7 +70,6 @@ require("lazy").setup({
 	"stevearc/dressing.nvim",
 	"sanfusu/neovim-undotree",
 	"nvim-telescope/telescope-project.nvim",
-	"lewis6991/gitsigns.nvim",
 	"nvim-tree/nvim-web-devicons",
 	"nvim-lualine/lualine.nvim",
 	{ "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
@@ -101,4 +100,25 @@ require("lazy").setup({
 	},
 	-- WARN: mini plugins
 	{ "echasnovski/mini.nvim", version = false },
+	-- NOTE: GIT plugins
+	"lewis6991/gitsigns.nvim",
+	{
+		"kdheepak/lazygit.nvim",
+		cmd = {
+			"LazyGit",
+			"LazyGitConfig",
+			"LazyGitCurrentFile",
+			"LazyGitFilter",
+			"LazyGitFilterCurrentFile",
+		},
+		-- optional for floating window border decoration
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		-- setting the keybinding for LazyGit with 'keys' is recommended in
+		-- order to load the plugin when the command is run for the first time
+		keys = {
+			{ "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+		},
+	},
 })
