@@ -33,6 +33,7 @@ require("lazy").setup({
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	"stevearc/conform.nvim",
 	"nvim-lua/plenary.nvim",
+	"mfussenegger/nvim-lint", -- NOTE: LINTER PLUGIN
 	{
 		"pmizio/typescript-tools.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
