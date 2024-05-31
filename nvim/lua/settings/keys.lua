@@ -68,6 +68,7 @@ k("n", "<leader>v", ":vnew<CR>", {desc="Open vertical split"})
 k("n", "<leader>h", ":new<CR>", {desc="Open horizontal split"})
 k("n", "<leader>f", ":lua require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown{previewer=true})<CR>", {desc="Find"})
 k("n", "<leader>P", ":lua require('telescope').extensions.project.project{}<CR>", {desc="Projects"})
+k("n", "<leader>te", ":TodoTelescope<CR>", {desc="TODO Items"})
 k("n", "<leader>t", ":Telescope<CR>", {desc="Telescope"})
 k("n", "<leader>p", ":Lazy<CR>", {desc="Lazy"})
 

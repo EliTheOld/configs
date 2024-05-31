@@ -20,7 +20,6 @@ require("lualine").setup({
 		},
 	},
 	sections = {
-		-- lualine_a = { "mode" },
 		lualine_a = {
 			{
 				"mode",
@@ -28,25 +27,31 @@ require("lualine").setup({
 				right_padding = 2,
 			},
 		},
-		lualine_b = { "branch" },
-		lualine_c = {
-			"filename",
+		lualine_b = {
+			{
+				"diagnostics",
+				always_visible = true,
+				sources = { "nvim_diagnostic" },
+				symbols = { error = " ", warn = " ", info = " " },
+			},
+		},
+		lualine_c = {},
+		lualine_x = { "filename", "filetype" },
+		lualine_y = {
+			"branch",
 			{
 				"diff",
 				colored = true, -- Displays a colored diff status if set to true
 				symbols = { added = " ", modified = "󰝤 ", removed = " " },
 			},
 		},
-		lualine_x = { "filetype" },
-		lualine_y = { "diagnostics", "progress" },
-		-- lualine_z = { "location" },
 		lualine_z = {
-            {
-                "location",
-                separator = { right = "" },
-                left_padding = 2,
-            }
-        },
+			{
+				"location",
+				separator = { right = "" },
+				left_padding = 2,
+			},
+		},
 	},
 	inactive_sections = {
 		lualine_a = {},
@@ -55,7 +60,6 @@ require("lualine").setup({
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},
-		-- lualine_z = {{ 'location', separator = { right = '' }, left_padding = 2 },},
 	},
 	tabline = {},
 	winbar = {},
