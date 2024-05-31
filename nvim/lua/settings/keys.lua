@@ -9,19 +9,6 @@ vim.g.maplocalleader = " "
 
 vim.keymap.set('i', '<Tab>',   [[pumvisible() ? "\<C-n>" : "\<Tab>"]],   { expr = true })
 vim.keymap.set('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
--- NOTE: CODEIUM keybindings
-vim.keymap.set("i", "<C-y>", function()
-	return vim.fn["codeium#Accept"]()
-end, { expr = true, silent = true })
-vim.keymap.set("i", "<c-n>", function()
-	return vim.fn["codeium#CycleCompletions"](1)
-end, { expr = true, silent = true })
-vim.keymap.set("i", "<c-p>", function()
-	return vim.fn["codeium#CycleCompletions"](-1)
-end, { expr = true, silent = true })
-vim.keymap.set("i", "<c-x>", function()
-	return vim.fn["codeium#Clear"]()
-end, { expr = true, silent = true })
 -- Normal --
 -- Better window navigation
 k("n", "<C-h>", "<C-w>h", opts)
@@ -71,11 +58,9 @@ k("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- WARN: ALL keybindings from whichkey
 k("n", "<leader>b", ":lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>", {desc="Buffers"})
 k("n", "<leader>e", ":lua MiniFiles.open()<CR>", {desc="Files"})
-k("n", "<leader>E", ":Neotree<CR>", {desc="Files"})
 k("n", "<leader>w", ":w!<CR>", {desc="Save"})
 k("n", "<leader>q", ":q!<CR>", {desc="Quit"})
 k("n", "<leader>Q", ":bdelete<CR>", {desc="Delete Buffer"})
-k("n", "<leader>u", ":UndotreeToggle<CR>", {desc="Undo Tree"})
 k("n", "<leader>H", ":nohlsearch<CR>", {desc="Turn off highlight search"})
 k("n", "<leader>F", ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>", {desc="Find Files"})
 k("n", "<leader>m", ":Mason<CR>", {desc="Mason"})
