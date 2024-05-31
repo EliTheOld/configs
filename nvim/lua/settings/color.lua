@@ -22,26 +22,4 @@ require("tokyonight").setup({
 	},
 })
 
-require("onedark").setup({
-	style = "darker",
-	transparent = true, -- Show/hide background
-	code_style = {
-		comments = "italic",
-		keywords = "none",
-		functions = "bold",
-		strings = "none",
-		variables = "italic",
-	},
-	lualine = {
-		transparent = true, -- lualine center bar transparency
-	},
-    	diagnostics = {
-        	darker = true, -- darker colors for diagnostic
-        	undercurl = true,   -- use undercurl instead of underline for diagnostics
-        	background = true,    -- use background color for virtual text
-    	},
-})
--- setup must be called before loading
-require("onedark").load()
-
-vim.cmd("colorscheme onedark")
+vim.cmd("colorscheme tokyonight")

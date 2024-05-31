@@ -60,8 +60,6 @@ require("lazy").setup({
 
 	-- NOTE: COLOR schemes
 	"catppuccin/nvim",
-	"olimorris/onedarkpro.nvim",
-	"navarasu/onedark.nvim",
 
 	-- NOTE: UI plugins
 	{
