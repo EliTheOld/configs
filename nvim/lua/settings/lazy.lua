@@ -59,6 +59,7 @@ require("lazy").setup({
 	},
 
 	-- NOTE: COLOR schemes
+    "projekt0n/caret.nvim",
 	"catppuccin/nvim",
 
 	-- NOTE: UI plugins

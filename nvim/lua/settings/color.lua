@@ -7,7 +7,6 @@ require("catppuccin").setup({
 	transparent_background = true, -- disables setting the background color.
 })
 
-
 require("tokyonight").setup({
 	style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
 	transparent = true, -- Enable this to disable setting the background color
@@ -22,4 +21,12 @@ require("tokyonight").setup({
 	},
 })
 
-vim.cmd("colorscheme tokyonight")
+require("caret").setup({
+	options = {
+		transparent = false, -- Set to true to disable background setting
+	},
+})
+-- require("doom-themes").setup({})
+-- setup must be called before loading
+vim.opt.background = "dark"
+vim.cmd("colorscheme catppuccin")

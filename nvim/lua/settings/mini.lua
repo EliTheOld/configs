@@ -8,6 +8,7 @@ require("mini.indentscope").setup()
 require("mini.surround").setup()
 require("mini.files").setup()
 require("mini.fuzzy").setup()
+require("mini.fuzzy").setup()
 require("mini.ai").setup() -- alternative to treesitter textobjects
 require("mini.animate").setup({
 	scroll = {
