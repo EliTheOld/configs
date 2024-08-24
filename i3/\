@@ -148,9 +148,9 @@ exec --no-startup-id numlockx on
 # exec --no-startup-id xset s 480 dpms 600 600 600
 # exec --no-startup-id dbus-launch dunst
 exec_always --no-startup-id dunst
-exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
-exec_always --no-startup-id nm-applet
 # exec_always --no-startup-id autotiling
+exec_always --no-startup-id blueman-applet
+exec_always --no-startup-id nm-applet
 exec_always --no-startup-id nitrogen --restore
 exec_always "setxkbmap -model pc104 -layout us,ru -variant colemak, -option grp:win_space_toggle"
 
@@ -195,9 +195,9 @@ bar {
 #   modifier Mod1
 		# status_command i3status
 		status_command /home/wizard/.config/i3/bumblebee-status/bumblebee-status  \
-				-m  brightness pamixer memory time date battery \
+				-m  brightness pamixer memory time battery date \
 				-p  time.format=" %H:%M" date.format="%d.%m.%y" memory.format="{used}" \
-				-t gruvbox-powerline
+				-t powerline
  		font pango:Iosevka Nerd Font 12
  	    	position top
  		    tray_padding 0

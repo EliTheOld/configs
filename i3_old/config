@@ -1,18 +1,12 @@
-font pango:JetBrainsMono Nerd Font 12
-workspace_layout default
-# VARIABLES
-set $term st
+font pango:FiraCode Nerd Font 12
 set $mod Mod4
-set $browser firefox
-floating_modifier $mod
-
-#new_window pixel 0
+workspace_layout default
+new_window pixel 0
 gaps inner 6
 gaps outer 4
-
+floating_modifier $mod
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
-
 bindsym $mod+1    workspace  $ws1
 bindsym $mod+2    workspace  $ws2
 bindsym $mod+3    workspace  $ws3
@@ -23,7 +17,6 @@ bindsym $mod+7    workspace  $ws7
 bindsym $mod+8    workspace  $ws8
 bindsym $mod+9    workspace  $ws9
 bindsym $mod+0    workspace  $ws10
-
 bindcode $mod+87 workspace 1
 bindcode $mod+88 workspace 2
 bindcode $mod+89 workspace 3
@@ -34,7 +27,6 @@ bindcode $mod+79 workspace 7
 bindcode $mod+80 workspace 8
 bindcode $mod+81 workspace 9
 bindcode $mod+90 workspace 10
-
 bindcode $mod+Mod2+87 workspace $ws1
 bindcode $mod+Mod2+88 workspace $ws2
 bindcode $mod+Mod2+89 workspace $ws3
@@ -45,7 +37,6 @@ bindcode $mod+Mod2+79 workspace $ws7
 bindcode $mod+Mod2+80 workspace $ws8
 bindcode $mod+Mod2+81 workspace $ws9
 bindcode $mod+Mod2+90 workspace $ws10
-
 bindsym $mod+Shift+1    move container to workspace  $ws1
 bindsym $mod+Shift+2    move container to workspace  $ws2
 bindsym $mod+Shift+3    move container to workspace  $ws3
@@ -56,7 +47,6 @@ bindsym $mod+Shift+7    move container to workspace  $ws7
 bindsym $mod+Shift+8    move container to workspace  $ws8
 bindsym $mod+Shift+9    move container to workspace  $ws9
 bindsym $mod+Shift+0    move container to workspace  $ws10
-
 bindcode $mod+Shift+Mod2+87 	move container to workspace  $ws1
 bindcode $mod+Shift+Mod2+88 	move container to workspace  $ws2
 bindcode $mod+Shift+Mod2+89 	move container to workspace  $ws3
@@ -67,7 +57,6 @@ bindcode $mod+Shift+Mod2+79 	move container to workspace  $ws7
 bindcode $mod+Shift+Mod2+80 	move container to workspace  $ws8
 bindcode $mod+Shift+Mod2+81 	move container to workspace  $ws9
 bindcode $mod+Shift+Mod2+90 	move container to workspace  $ws10
-
 bindcode $mod+Shift+87 	 move container to workspace  $ws1
 bindcode $mod+Shift+88 	 move container to workspace  $ws2
 bindcode $mod+Shift+89 	 move container to workspace  $ws3
@@ -78,19 +67,15 @@ bindcode $mod+Shift+79 	 move container to workspace  $ws7
 bindcode $mod+Shift+80 	 move container to workspace  $ws8
 bindcode $mod+Shift+81 	 move container to workspace  $ws9
 bindcode $mod+Shift+90 	 move container to workspace  $ws10
-
-# LAUNCHERS
-bindsym $mod+Return exec $term
-bindsym $mod+t exec $term
-bindsym $mod+w exec $browser
-bindsym $mod+r exec dmenu_run -nb '#282828' -nf '#ebdbb2' -sb '#fe8019' -sf '#282828' -fn 'JetBrainsMono Nerd Font-14'
-# bindsym $mod+r exec rofi -show drun
-
-# bindsym $mod+Shift+r resize
+bindsym $mod+Return exec kitty
+bindsym $mod+t exec kitty
+bindsym $mod+r exec dmenu_run -nb '#1e1e2e' -nf '#cdd6f4' -sb '#b4befe' -sf '#1e1e2e' -fn 'FiraCode Nerd Font-14'
+bindsym $mod+a exec ~/.config/polybar/material/scripts/launcher.sh
 bindsym $mod+q kill
+# bindsym $mod+Shift+r resize
 bindsym $mod+Shift+r restart
-
-# MOVING windows on one workspace
+bindsym XF86MonBrightnessUp exec brightnessctl s +5% && notify-send "$(brightnessctl | grep Current)"
+bindsym XF86MonBrightnessDown exec brightnessctl s 5%- && notify-send "$(brightnessctl | grep Current)"
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
@@ -107,50 +92,53 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-
-# Changing Layout
 bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
-# bindsym $mod+s layot stacking
+bindsym $mod+s layout stacking
 bindsym $mod+g layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 bindsym $mod+Shift+a focus parent
-
-bindsym XF86AudioRaiseVolume exec pamixer -i 5 && notify-send "Volume increased to $(pamixer --get-volume)"
-bindsym XF86AudioLowerVolume exec pamixer -d 5 && notify-send "Volume decreased to $(pamixer --get-volume)"
+bindsym XF86AudioRaiseVolume exec pamixer -i 5
+bindsym XF86AudioLowerVolume exec pamixer -d 5
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+# bindsym $mod+p exec /usr/local/bin/switch-audio-port
+bindsym $mod+w exec firefox
 bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
-bindsym XF86MonBrightnessUp exec brightnessctl s +5% && notify-send "$(brightnessctl | grep Current)"
-bindsym XF86MonBrightnessDown exec brightnessctl s 5%- && notify-send "$(brightnessctl | grep Current)"
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
-
-assign [class="st"] $ws1
+# set $ws1 "1: "
+# set $ws2 "2: "
+# set $ws3 "3: "
+# set $ws4 "4: "
+# set $ws5 "5:󰖺 "
+set $ws6 "1:1"
+set $ws6 "2:2"
+set $ws6 "3:3"
+set $ws6 "4:4"
+set $ws6 "5:5"
+# set $ws6 "6"
+# set $ws7 "7"
+# set $ws8 "8"
+# set $ws9 "9"
+# set $ws10 "10"
+assign [class="wezterm"] $ws1
 assign [class="(?i)firefox"] $ws2
 assign [class="dolphin"] $ws3
 
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id numlockx on
 # exec --no-startup-id xset s 480 dpms 600 600 600
 # exec --no-startup-id dbus-launch dunst
-exec_always --no-startup-id dunst
-exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
-exec_always --no-startup-id nm-applet
+# exec_always --no-startup-id dunst
 # exec_always --no-startup-id autotiling
+# exec_always --no-startup-id blueman-applet
+exec_always --no-startup-id nm-applet
+exec_always --no-startup-id ~/.config/polybar/material/launch.sh
+# exec_always --no-startup-id feh --bg-scale  ~/Pictures/catppuccin-wallpapers/arch-magenta-blue-1920x1080.png
 exec_always --no-startup-id nitrogen --restore
 exec_always "setxkbmap -model pc104 -layout us,ru -variant colemak, -option grp:win_space_toggle"
 
@@ -165,54 +153,52 @@ for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enabl
 for_window [class="Pamac-manager"] floating enable
 for_window [class="Blueman"] floating enable
 for_window [window_role="About"] floating enable
+set $blue   		#89b4fa	
+set $red		    #f38ba8
+set $white		    #cdd6f4
+set $black		    #1e1e2e
+set $purple		    #b4befe
+set $darkgrey		#313244
+set $mediumgrey		#585b70
+set $grey		    #9399b2
+set $yellow     	#f9e2af
+set $green          #a6e3a1
+set $orange         #fab387
+set $cream          #f5e0dc
 
-set $blue					#458588	
-set $red					#cc241d
-set $white		    #ebdbb2
-set $black		    #282828
-set $purple		    #b16286
-set $darkgrey			#665c54
-set $mediumgrey		#7c6f64
-set $grey					#928374
-set $yellow     	#d79921
-set $green        #98971a
-set $orange       #d65d0e
-set $cream        #fbf1c7
-
-default_border pixel 0
+default_border pixel 3
 
 # define colors for windows:
-#class										border			bground				text			indicator		child_border
-client.focused						$blue 	    $darkgrey			$white		$blue				$blue
-client.unfocused					$darkgrey		$darkgrey			$white		$darkgrey  	$darkgrey
-client.focused_inactive		$blue				$mediumgrey		$white		$blue				$blue
-client.urgent							$red				$red					$white		$yellow			$yellow
-
-# BAR settings:
+#class		        	    border		bground		text		indicator	child_border
+client.focused		    	$blue 	    $darkgrey	$white		$blue	    $blue
+client.unfocused	    	$darkgrey	$darkgrey  	$white		$darkgrey  	$darkgrey
+client.focused_inactive		$blue	    $mediumgrey	$white		$blue		$blue
+client.urgent		    	$red	    $red	    $white		$yellow 	$yellow
 bar {
-#   mode hide
-#   hidden_state hide
-#   modifier Mod1
-		# status_command i3status
-		status_command /home/wizard/.config/i3/bumblebee-status/bumblebee-status  \
-				-m  brightness pamixer memory time date battery \
-				-p  time.format=" %H:%M" date.format="%d.%m.%y" memory.format="{used}" \
-				-t gruvbox-powerline
- 		font pango:Iosevka Nerd Font 12
- 	    	position top
- 		    tray_padding 0
-
-
-		strip_workspace_numbers yes
- 		    colors {
- 		    separator          $black
- 		    background         $black
- 		    statusline         $white
-#                           border		bg		    txt							indicator
- 		focused_workspace				$black		$black		$orange					$red
- 		active_workspace				$black		$black    $green					$red
- 		inactive_workspace			$black		$black	  $green					$red
- 		urgent_workspace				$black		$red	    $white					$red
- 	}
+    mode hide
+    hidden_state hide
+    modifier Mod1
+    # status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks
+    # status_command i3status -c ~/.config/i3status/i3status.conf
+#     status_command /usr/bin/bumblebee-status \
+#         -m layout-xkbswitch brightness pamixer memory battery time date \
+#         -p  time.format=" %H:%M" date.format="%d.%m.%y" memory.format="{used}" \
+#         -t iceberg
+#
+#
+# 		font pango:Iosevka Nerd Font 12
+# 	    	position top
+# 		    tray_padding 0
+# strip_workspace_numbers yes
+# 		    colors {
+# 		    separator          $black
+# 		    background         $black
+# 		    statusline         $white
+# #                          	border 		bg		    txt		    indicator
+# 		focused_workspace	$blue	   	$blue		$darkgrey	$purple
+# 		active_workspace	$blue      	$black      $green	    $purple
+# 		inactive_workspace	$black      $black	    $green		$purple
+# 		urgent_workspace	$red	    $red	    $white		$purple
+# 	}
 }
 

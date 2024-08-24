@@ -1,7 +1,7 @@
 font pango:JetBrainsMono Nerd Font 12
 workspace_layout default
 # VARIABLES
-set $term st
+set $term foot
 set $mod Mod4
 set $browser firefox
 floating_modifier $mod
@@ -88,7 +88,7 @@ bindsym $mod+r exec dmenu_run -nb '#282828' -nf '#ebdbb2' -sb '#fe8019' -sf '#28
 
 # bindsym $mod+Shift+r resize
 bindsym $mod+q kill
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r reload
 
 # MOVING windows on one workspace
 bindsym $mod+h focus left
@@ -127,20 +127,20 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 bindsym XF86MonBrightnessUp exec brightnessctl s +5% && notify-send "$(brightnessctl | grep Current)"
 bindsym XF86MonBrightnessDown exec brightnessctl s 5%- && notify-send "$(brightnessctl | grep Current)"
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
 
-assign [class="st"] $ws1
+assign [class="foot"] $ws1
 assign [class="(?i)firefox"] $ws2
-assign [class="dolphin"] $ws3
+assign [class="thunar"] $ws3
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dex --autostart --environment i3
@@ -148,11 +148,11 @@ exec --no-startup-id numlockx on
 # exec --no-startup-id xset s 480 dpms 600 600 600
 # exec --no-startup-id dbus-launch dunst
 exec_always --no-startup-id dunst
+exec_always --no-startup-id pulseaudio
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 exec_always --no-startup-id nm-applet
-# exec_always --no-startup-id autotiling
-exec_always --no-startup-id nitrogen --restore
-exec_always "setxkbmap -model pc104 -layout us,ru -variant colemak, -option grp:win_space_toggle"
+exec_always --no-startup-id blueman-applet
+exec_always --no-startup-id swaybg -i ~/Pictures/moose_forest.jpg &
 
 for_window [class="Yad" instance="yad"] floating enable
 for_window [class="Galculator" instance="galculator"] floating enable
@@ -187,7 +187,15 @@ client.focused						$blue 	    $darkgrey			$white		$blue				$blue
 client.unfocused					$darkgrey		$darkgrey			$white		$darkgrey  	$darkgrey
 client.focused_inactive		$blue				$mediumgrey		$white		$blue				$blue
 client.urgent							$red				$red					$white		$yellow			$yellow
-
+	input "type:keyboard"	{
+		xkb_layout us,ru
+		xkb_variant colemak,
+		xkb_options grp:win_space_toggle
+	}
+		input "type:touchpad"	{
+		tap enabled
+		natural_scroll enabled
+	}
 # BAR settings:
 bar {
 #   mode hide
@@ -209,10 +217,10 @@ bar {
  		    background         $black
  		    statusline         $white
 #                           border		bg		    txt							indicator
- 		focused_workspace				$black		$black		$orange					$red
- 		active_workspace				$black		$black    $green					$red
- 		inactive_workspace			$black		$black	  $green					$red
- 		urgent_workspace				$black		$red	    $white					$red
+ 		focused_workspace				$black		$black		$orange				
+ 		active_workspace				$black		$black    $green			
+ 		inactive_workspace			$black		$black	  $green		
+ 		urgent_workspace				$black		$red	    $white	
  	}
 }
 
