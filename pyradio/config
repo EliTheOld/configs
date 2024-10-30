@@ -1,6 +1,0 @@
-# PyRadio User Configuration File
-# To get a full list of options execute: pyradio -pc
-# or examine the file: /home/wizard/.local/share/pipx/venvs/pyradio/lib64/python3.12/site-packages/pyradio/config
-#
-theme = gruvbox_dark_by_sng
-use_transparency = True
